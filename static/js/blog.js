@@ -4,6 +4,8 @@
 
     // Global posts data cache (scoped to this closure)
     let allPosts = [];
+    let blogListInitialized = false;
+    let articleReaderInitialized = false;
 
     function getCoverUrl(cover) {
         return cover || FALLBACK_COVER;
@@ -30,6 +32,9 @@
      * Initialize Blog List Page
      */
     window.initBlogList = async function() {
+        if (blogListInitialized) return;
+        blogListInitialized = true;
+
         console.log('initBlogList called');
         const grid = document.getElementById('blog-grid');
         const buttons = document.querySelectorAll('.season-btn');
@@ -138,6 +143,9 @@
      * Initialize Article Reader Page
      */
     window.initArticleReader = async function() {
+        if (articleReaderInitialized) return;
+        articleReaderInitialized = true;
+
         console.log('initArticleReader called');
         const titleEl = document.getElementById('article-title');
         const dateEl = document.getElementById('article-date');
@@ -383,15 +391,19 @@
         headers.forEach(header => observer.observe(header));
     }
 
-    // Auto-init fallback
-    // if (!window.pjaxActive) {
-    //     document.addEventListener('DOMContentLoaded', () => {
-    //         const path = window.location.pathname;
-    //         if (path.includes('blogs.html')) {
-    //             window.initBlogList();
-    //         } else if (path.includes('article.html')) {
-    //             if (typeof window.initArticleReader === 'function') window.initArticleReader();
-    //         }
-    //     });
-    // }
+    function autoInitCurrentPage() {
+        const path = window.location.pathname;
+
+        if (path.includes('blogs.html')) {
+            window.initBlogList();
+        } else if (path.includes('article.html') && typeof window.initArticleReader === 'function') {
+            window.initArticleReader();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', autoInitCurrentPage, { once: true });
+    } else {
+        autoInitCurrentPage();
+    }
 })();

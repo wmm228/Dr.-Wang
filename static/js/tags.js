@@ -2,6 +2,7 @@
 (function() {
     const FALLBACK_COVER = './static/img/new_home/my_bg.jpg';
     let allPosts = [];
+    let tagsPageInitialized = false;
 
     function getCoverUrl(cover) {
         return cover || FALLBACK_COVER;
@@ -25,6 +26,9 @@
     }
 
     window.initTagsPage = async function() {
+        if (tagsPageInitialized) return;
+        tagsPageInitialized = true;
+
         const tagsCloudContainer = document.querySelector('.tags-header');
         const blogCardsContainer = document.querySelector('.blog-cards-container');
 
@@ -131,5 +135,17 @@
             applyCoverBackground(card.querySelector('.blog-cover'), post.cover);
             container.appendChild(card);
         });
+    }
+
+    function autoInitTagsPage() {
+        if (window.location.pathname.includes('tags.html')) {
+            window.initTagsPage();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', autoInitTagsPage, { once: true });
+    } else {
+        autoInitTagsPage();
     }
 })();
