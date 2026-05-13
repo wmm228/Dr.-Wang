@@ -142,13 +142,25 @@ window.initQuotes = function() {
         window.homeIntervals = [];
     }
 
-    const assetVersion = '20260204';
+    const assetVersion = '20260513';
+    const defaultQuotes = [
+        '青山不改，绿水长流。',
+        '生活明朗，万物可爱。',
+        '星光不问赶路人，时光不负有心人。',
+        '热爱可抵岁月漫长。',
+        '前程似锦，未来可期。',
+        '山河远阔，人间烟火。',
+        '满眼星辰，尽是温柔。',
+        '初心不改，方得始终。'
+    ];
     const quoteText = document.getElementById('quote-text');
     const img1 = document.getElementById('gallery-img-1');
     const img2 = document.getElementById('gallery-img-2');
     const refreshBtn = document.getElementById('quote-refresh-btn');
-    
-    if (!quoteText || !img1 || !img2) return; 
+    const hasQuoteUI = Boolean(quoteText && refreshBtn);
+    const hasGalleryUI = Boolean(img1 && img2);
+
+    if (!hasQuoteUI && !hasGalleryUI) return;
 
     // Gallery Configuration
     const galleryImages = [];
@@ -175,16 +187,26 @@ window.initQuotes = function() {
     async function fetchQuotes() {
         try {
             const response = await fetch(`./static/quotes/quotes.txt?v=${assetVersion}`);
+            if (!response.ok) {
+                throw new Error(`Quote request failed: ${response.status}`);
+            }
             const text = await response.text();
-            const lines = text.split('\n').filter(line => line.trim() !== '');
+            const lines = text
+                .split(/\r?\n/)
+                .map(line => line.trim())
+                .filter(Boolean);
+            if (lines.length === 0) {
+                return defaultQuotes;
+            }
             return lines;
         } catch (error) {
             console.error('Error loading quotes:', error);
-            return ["Stay hungry, stay foolish."];
+            return defaultQuotes;
         }
     }
     
     async function refreshQuote() {
+        if (!quoteText) return;
         const quotes = await fetchQuotes();
         
         // Use sequential index
@@ -201,6 +223,7 @@ window.initQuotes = function() {
     }
     
     function refreshGallery() {
+        if (!img1 || !img2) return;
         if (galleryImages.length === 0) return;
         
         // Determine which is active and which is next
@@ -261,36 +284,36 @@ window.initQuotes = function() {
     }
 
     // Manual refresh button (Refreshes quote immediately)
-    refreshBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); 
-        refreshQuote();
-        // Reset quote timer
-        clearInterval(quoteTimer);
-        // Remove old timer from array
-        const idx = window.homeIntervals.indexOf(quoteTimer);
-        if (idx > -1) window.homeIntervals.splice(idx, 1);
-        
-        quoteTimer = setInterval(refreshQuote, 5000);
-        window.homeIntervals.push(quoteTimer);
-    });
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            refreshQuote();
+            clearInterval(quoteTimer);
+            const idx = window.homeIntervals.indexOf(quoteTimer);
+            if (idx > -1) window.homeIntervals.splice(idx, 1);
+
+            quoteTimer = setInterval(refreshQuote, 5000);
+            window.homeIntervals.push(quoteTimer);
+        });
+    }
     
     // Initial Load
-    refreshQuote();
-    // Load first image immediately without animation
-    if (galleryImages.length > 0) {
+    if (hasQuoteUI) {
+        refreshQuote();
+        quoteTimer = setInterval(refreshQuote, 5000);
+        window.homeIntervals.push(quoteTimer);
+    }
+
+    if (hasGalleryUI && galleryImages.length > 0) {
         img1.src = galleryImages[0];
         img1.classList.add('active-image');
         galleryIndex = 1; // Start next refresh from index 1
     }
-    
-    // Set Independent Intervals
-    // Quote: 5 seconds
-    quoteTimer = setInterval(refreshQuote, 5000);
-    window.homeIntervals.push(quoteTimer);
-    
-    // Gallery: 4 seconds (Slightly longer to allow for load + anim)
-    galleryTimer = setInterval(refreshGallery, 4000);
-    window.homeIntervals.push(galleryTimer);
+
+    if (hasGalleryUI) {
+        galleryTimer = setInterval(refreshGallery, 4000);
+        window.homeIntervals.push(galleryTimer);
+    }
 }
 
 /* Time & Location & Weather Logic */
