@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Global Error Handler for Debugging
+        window.onerror = function(msg, url, line, col, error) {
+            const errDiv = document.createElement('div');
+            errDiv.style.position = 'fixed';
+            errDiv.style.top = '0';
+            errDiv.style.left = '0';
+            errDiv.style.width = '100%';
+            errDiv.style.background = 'rgba(255, 0, 0, 0.9)';
+            errDiv.style.color = 'white';
+            errDiv.style.padding = '10px';
+            errDiv.style.zIndex = '10000';
+            errDiv.style.fontFamily = 'monospace';
+            errDiv.style.whiteSpace = 'pre-wrap';
+            errDiv.innerText = `JS Error: ${msg}\nFile: ${url}:${line}:${col}\n${error ? error.stack : ''}`;
+            document.body.appendChild(errDiv);
+            return false;
+        };
+        window.addEventListener('unhandledrejection', function(event) {
+            const errDiv = document.createElement('div');
+            errDiv.style.position = 'fixed';
+            errDiv.style.bottom = '0';
+            errDiv.style.left = '0';
+            errDiv.style.width = '100%';
+            errDiv.style.background = 'rgba(255, 100, 0, 0.9)';
+            errDiv.style.color = 'white';
+            errDiv.style.padding = '10px';
+            errDiv.style.zIndex = '10000';
+            errDiv.style.fontFamily = 'monospace';
+            errDiv.innerText = `Promise Error: ${event.reason}`;
+            document.body.appendChild(errDiv);
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wmumu's Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using fonts.loli.net (Google Fonts Mirror) for faster access in China -->
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+    <link href="https://fonts.loli.net/css2?family=Fredoka:wght@400;600&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./static/img/favicon.ico?v=20260204">
+    <link rel="stylesheet" href="./static/css/home.css?v=20260204">
+    <link rel="stylesheet" href="./static/css/gallery.css?v=20260204">
+    <script src="./static/js/global.js?v=20260204"></script>
+    <script src="./static/js/home.js?v=20260204"></script>
+    <!-- Font Awesome for icons (Optional, using unicode for now to keep simple) -->
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">Wmumu</span>
+                <span class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="./tags.html" class="nav-link">标签</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./blogs.html" class="nav-link">博客 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./blogs.html?category=spring">春 · Spring</a>
+                        <a href="./blogs.html?category=summer">夏 · Summer</a>
+                        <a href="./blogs.html?category=autumn">秋 · Autumn</a>
+                        <a href="./blogs.html?category=winter">冬 · Winter</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">简历 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./article.html?id=research">科研经历</a>
+                        <a href="./article.html?id=competition">科技竞赛</a>
+                        <a href="./article.html?id=campus">校园经历</a>
+                        <a href="./article.html?id=internship">实习经历</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content (Bento Grid) -->
+    <div class="main-container" id="pjax-container">
+        
+        <!-- About Card -->
+        <div class="card about-card">
+            <div class="about-video-layer">
+                <video class="about-bg-video" autoplay muted loop playsinline preload="auto">
+                    <source src="./static/video/motionplaces.com-0049-c004.mp4?v=20260204" type="video/mp4">
+                </video>
+                <div class="about-video-overlay"></div>
+            </div>
+            <!-- About Main View -->
+            <div class="about-main">
+                <div class="avatar-container">
+                    <img src="./static/img/logo.png?v=20260204" alt="Avatar" class="avatar">
+                    <div class="status-icon">
+                        <span class="status-emoji">👋</span>
+                    </div>
+                </div>
+                <h2 class="name-title">Dr. Wang</h2>
+                <div class="tags-container">
+                    <span class="tag-pill-sm">PhD Candidate</span>
+                </div>
+            </div>
+
+            <!-- Hover Content: Intro Text -->
+            <div class="about-hover-text">
+                <div class="info-row">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span id="time-display">Loading time...</span>
+                </div>
+                <div class="info-row">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span id="location-display">Locating...</span>
+                </div>
+            </div>
+
+            <!-- Bottom Buttons (Always Visible) -->
+            <div class="about-bottom">
+                <a href="./about.html" class="btn-pill">
+                    about
+                </a>
+                <div class="icon-group">
+                    <a href="mailto:your-email@example.com" class="icon-btn" title="Email">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <a href="https://github.com/wmm228" target="_blank" class="icon-btn" title="GitHub">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://blog.csdn.net/weixin_43961909?spm=1000.2115.3001.5343" target="_blank" class="icon-btn" title="CSDN">
+                        <svg viewBox="0 0 1024 1024" width="20" height="20" fill="currentColor"><path d="M512 0C229.23 0 0 229.23 0 512s229.23 512 512 512 512-229.23 512-512S794.77 0 512 0zm0 938.67C276.36 938.67 85.33 747.64 85.33 512S276.36 85.33 512 85.33 938.67 276.36 938.67 512 747.64 938.67 512 938.67z" fill="#d92e2e"/><path d="M682.67 341.33H341.33c-23.56 0-42.67 19.11-42.67 42.67v256c0 23.56 19.11 42.67 42.67 42.67h341.33c23.56 0 42.67-19.11 42.67-42.67V384c0-23.56-19.11-42.67-42.67-42.67zm-42.67 256H384V426.67h256v170.66z" fill="#d92e2e"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image/Mood Card -->
+        <div class="card image-card">
+            <div class="vertical-text-container">
+                <div class="vertical-line line-left">真相只有一个</div>
+                <div class="vertical-line line-right">我只想遇见你</div>
+            </div>
+            <div class="weather-overlay">
+                <div class="weather-icon-container" id="weather-icon">
+                    <!-- Icon will be injected here -->
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                </div>
+                <div class="weather-info">
+                    <div class="weather-temp" id="weather-temp">--°C</div>
+                    <div class="weather-desc" id="weather-desc">获取天气中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Player Card -->
+        <div class="card music-card">
+            <div class="music-content">
+                <!-- Rotating Vinyl/Cover -->
+                <div class="music-cover-container">
+                    <div class="music-cover" id="music-cover">
+                        <div class="music-cover-center"></div>
+                    </div>
+                </div>
+                
+                <!-- Info & Controls -->
+                <div class="music-details">
+                    <h3 class="music-title" id="song-title">将爱却晚秋</h3>
+                    <p class="music-artist" id="song-artist">灯叔</p>
+                    
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    
+                    <div class="music-controls">
+                        <button id="prev-btn" class="control-btn" title="上一首">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                        </button>
+                        <button id="play-btn" class="control-btn play-btn-main" title="播放/暂停">
+                            <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <button id="next-btn" class="control-btn" title="下一首">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quotes Card -->
+        <div class="card quotes-card" id="quotes-card">
+            <!-- Gallery Background Layer (Double Buffer) -->
+            <div id="gallery-container" class="gallery-background">
+                <img id="gallery-img-1" src="" alt="" class="gallery-image active-image">
+                <img id="gallery-img-2" src="" alt="" class="gallery-image inactive-image">
+                <div class="gallery-overlay"></div> <!-- Dark overlay for readability -->
+            </div>
+            
+            <!-- Quote Text Layer (Centered) -->
+            <div id="quote-container" class="quote-overlay">
+                <p class="quote-text" id="quote-text">Loading quote...</p>
+            </div>
+
+            <!-- Refresh Button -->
+            <div class="quote-refresh-btn" id="quote-refresh-btn" title="刷新">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            </div>
+        </div>
+
+        <!-- Stats Card (Right) -->
+        <div class="card stats-card">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4facfe;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value counter" data-target="332">0</span>
+                    <span class="stat-label">成立天数</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #00f2fe;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value counter" data-target="24">0</span>
+                    <span class="stat-label">文章数量</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff9a9e;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value counter" data-target="3402">0</span>
+                    <span class="stat-label">评论互动</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #a18cd1;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value counter" data-target="25">0</span>
+                    <span class="stat-label">标签分类</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Dr. Wang. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的云盘 - Wmumu Drive</title>
+    <link rel="stylesheet" href="./static/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background: #f5f5f7; 
+            font-family: 'Roboto', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0;
+            overflow: hidden;
+        }
+        .finder-window {
+            width: 800px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.4);
+            animation: popIn 0.3s ease-out;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .window-header {
+            height: 40px;
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            border-bottom: 1px solid #ccc;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+        }
+        .light { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f57; border: 1px solid #e0443e; }
+        .yellow { background: #ffbd2e; border: 1px solid #dea123; }
+        .green { background: #28c940; border: 1px solid #1aab29; }
+        
+        .window-title {
+            flex-grow: 1;
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .window-body {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 180px;
+            background: rgba(240, 240, 240, 0.5);
+            border-right: 1px solid rgba(0,0,0,0.05);
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .sidebar-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #444;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .sidebar-item:hover { background: rgba(0,0,0,0.05); }
+        .sidebar-item.active { background: #e3e3e3; color: #000; font-weight: 500; }
+        
+        .content-area {
+            flex-grow: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-auto-rows: 120px;
+            gap: 15px;
+            overflow-y: auto;
+        }
+        
+        .file-icon-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            color: #333;
+        }
+        .file-icon-wrapper:hover {
+            background: rgba(0,122,255,0.1);
+        }
+        .file-icon-img {
+            width: 50px;
+            height: 60px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        /* CSS File Icon */
+        .icon-pdf {
+            background: #ff4040;
+            border-radius: 4px;
+            width: 40px;
+            height: 50px;
+            position: relative;
+        }
+        .icon-pdf::after {
+            content: 'PDF';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 8px;
+            font-weight: bold;
+        }
+        .icon-ppt {
+            background: #d24726;
+            border-radius: 4px;
+            width: 40px;
+            height: 50px;
+            position: relative;
+        }
+        .icon-ppt::after {
+            content: 'PPT';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 8px;
+            font-weight: bold;
+        }
+        
+        .file-name {
+            font-size: 0.85rem;
+            text-align: center;
+            word-break: break-all;
+            max-width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="finder-window">
+        <div class="window-header">
+            <div class="traffic-lights">
+                <a href="./about.html" class="light red" title="Close"></a>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+            <div class="window-title">Wmumu's Drive</div>
+        </div>
+        <div class="window-body">
+            <div class="sidebar">
+                <div class="sidebar-item active">
+                    <span>☁️</span> Cloud Drive
+                </div>
+                <div class="sidebar-item">
+                    <span>🕒</span> Recent
+                </div>
+                <div class="sidebar-item">
+                    <span>⭐</span> Starred
+                </div>
+                <div style="flex-grow:1"></div>
+                <a href="./about.html" class="sidebar-item">
+                    <span>⬅️</span> Back
+                </a>
+            </div>
+            <div class="content-area">
+                <a href="./pdf/王晓龙简历.pdf" download class="file-icon-wrapper">
+                    <div class="file-icon-img icon-pdf"></div>
+                    <span class="file-name">王晓龙简历.pdf</span>
+                </a>
+                <a href="./pdf/王晓龙-申博-华东师范大学.pptx" download class="file-icon-wrapper">
+                    <div class="file-icon-img icon-ppt"></div>
+                    <span class="file-name">申博PPT.pptx</span>
+                </a>
+                <a href="./pdf/32 实习协议书- 王晓龙.pdf" download class="file-icon-wrapper">
+                    <div class="file-icon-img icon-pdf"></div>
+                    <span class="file-name">实习协议.pdf</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

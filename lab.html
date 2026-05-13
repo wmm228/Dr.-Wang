@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验室 - Wmumu Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            width: 100%;
+            padding: 20px;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .header h1 { margin: 0; color: #58a6ff; font-size: 1.5rem; }
+        .header p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px 0;
+        }
+        
+        .lab-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .lab-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .card-icon { font-size: 1.5rem; }
+        .card-status {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: rgba(46, 160, 67, 0.15);
+            color: #3fb950;
+            border: 1px solid rgba(46, 160, 67, 0.4);
+        }
+        .status-wip {
+            background: rgba(210, 153, 34, 0.15);
+            color: #d29922;
+            border-color: rgba(210, 153, 34, 0.4);
+        }
+        
+        .card-title {
+            color: #c9d1d9;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .card-desc {
+            color: #8b949e;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        .terminal-effect::before {
+            content: "> ";
+            color: #58a6ff;
+        }
+        
+        .back-btn {
+            margin-top: auto;
+            margin-bottom: 40px;
+            color: #58a6ff;
+            text-decoration: none;
+            border: 1px solid #30363d;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: #21262d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>~/wmumu/lab</h1>
+        <p>Experimental Projects & Code Snippets</p>
+    </div>
+
+    <div class="grid-container">
+        <div class="lab-card" onclick="alert('Launching Snake Game...')">
+            <div class="card-header">
+                <span class="card-icon">🐍</span>
+                <span class="card-status status-wip">v0.9.0</span>
+            </div>
+            <div class="card-title terminal-effect">snake_game.py</div>
+            <div class="card-desc">Classic Snake game implementation using vanilla JS and Canvas. AI mode coming soon.</div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-header">
+                <span class="card-icon">🧠</span>
+                <span class="card-status">Stable</span>
+            </div>
+            <div class="card-title terminal-effect">llm_wrapper</div>
+            <div class="card-desc">A lightweight wrapper for various LLM APIs (OpenAI, Gemini, Claude) for quick prototyping.</div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-header">
+                <span class="card-icon">🕸️</span>
+                <span class="card-status status-wip">Alpha</span>
+            </div>
+            <div class="card-title terminal-effect">crawler_bot</div>
+            <div class="card-desc">Automated web scraper for gathering academic papers from ArXiv.</div>
+        </div>
+        
+        <div class="lab-card">
+            <div class="card-header">
+                <span class="card-icon">📊</span>
+                <span class="card-status">Beta</span>
+            </div>
+            <div class="card-title terminal-effect">data_viz</div>
+            <div class="card-desc">Interactive data visualization experiments using D3.js and ECharts.</div>
+        </div>
+    </div>
+
+    <a href="./about.html" class="back-btn">cd ..</a>
+</body>
+</html>

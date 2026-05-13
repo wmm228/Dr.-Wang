@@ -1,0 +1,9 @@
+tunnel: 1180950d-718c-48cc-9b84-8c00d5dba880
+credentials-file: C:\Users\wmummu\.cloudflared\1180950d-718c-48cc-9b84-8c00d5dba880.json
+
+ingress:
+  - hostname: wmumu.uno
+    service: http://127.0.0.1:8000
+  - hostname: www.wmumu.uno
+    service: http://127.0.0.1:8000
+  - service: http_status:404

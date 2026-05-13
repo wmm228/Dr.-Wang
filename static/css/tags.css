@@ -1,0 +1,120 @@
+/* static/css/tags.css */
+
+/* 1. Enable Scrolling */
+body {
+    height: auto !important;
+    overflow-y: auto !important;
+}
+
+/* 2. Layout Override */
+.tags-page-container {
+    display: flex !important; /* Override home.css grid */
+    flex-direction: column;
+    height: auto !important;
+    margin-bottom: 4rem !important;
+    /* Remove grid constraints */
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+}
+
+/* 3. Tags Cloud Section */
+.tags-cloud-card {
+    min-height: auto !important;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tags-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.tag-pill {
+    padding: 0.6rem 1.2rem;
+    background: #f0f2f5;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.tag-pill:hover {
+    transform: translateY(-2px);
+    background: #e4e6eb;
+}
+
+.tag-pill.active {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+/* 4. Blog Cards Grid */
+.blog-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+/* 5. Blog Card Styles (Reusing patterns from blog.css) */
+.blog-card {
+    height: 380px !important; /* Override home.css height:100% if needed */
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.blog-cover {
+    height: 180px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.blog-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-tag {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.blog-title {
+    font-size: 1.3rem;
+    margin: 0 0 0.8rem 0;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    color: #2c3e50;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    margin-top: auto;
+}

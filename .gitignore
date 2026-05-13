@@ -1,0 +1,12 @@
+.npm-cache/
+__pycache__/
+
+server.out.log
+server.err.log
+
+deploy/pages-dist/
+deploy/homepage-pages-upload.zip
+deploy/homepage-cloudflare.log
+
+.DS_Store
+Thumbs.db

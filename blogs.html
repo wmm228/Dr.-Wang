@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客 - Wmumu's Blog</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./static/css/home.css?v=20260204">
+    <link rel="stylesheet" href="./static/css/blog.css?v=20260204">
+</head>
+<body>
+    <!-- Navigation (Copied from index.html) -->
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">Wmumu</span>
+                <span class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="./tags.html" class="nav-link">标签</a></li>
+                <li class="nav-item">
+                    <a href="./blogs.html" class="nav-link active">博客 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./blogs.html?category=spring">春 · Spring</a>
+                        <a href="./blogs.html?category=summer">夏 · Summer</a>
+                        <a href="./blogs.html?category=autumn">秋 · Autumn</a>
+                        <a href="./blogs.html?category=winter">冬 · Winter</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">简历 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./article.html?id=research">科研经历</a>
+                        <a href="./article.html?id=competition">科技竞赛</a>
+                        <a href="./article.html?id=campus">校园经历</a>
+                        <a href="./article.html?id=internship">实习经历</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="blog-container" id="pjax-container">
+        <!-- Season Filters -->
+        <div class="season-filters">
+            <button class="season-btn active" data-season="all">全部</button>
+            <button class="season-btn" data-season="spring">春</button>
+            <button class="season-btn" data-season="summer">夏</button>
+            <button class="season-btn" data-season="autumn">秋</button>
+            <button class="season-btn" data-season="winter">冬</button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid" id="blog-grid">
+            <!-- Cards will be injected here by JS -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #999;">
+                加载中...
+            </div>
+        </div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wmumu. All rights reserved.</p>
+    </footer>
+
+    <script src="./static/js/blog.js?v=20260204"></script>
+    <script src="./static/js/global.js?v=20260204"></script>
+</body>
+</html>

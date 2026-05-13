@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实习经历 - Internship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f3f2ef;
+            font-family: 'Inter', sans-serif;
+            color: #000000e6;
+            margin: 0;
+            padding: 0;
+        }
+        .header-bar {
+            background: white;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-logo {
+            color: #0a66c2;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .main-container {
+            max-width: 780px;
+            margin: 20px auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        /* Markdown Styles */
+        h1 { display: none; } /* Hide main title as we use header */
+        h2 { font-size: 1.25rem; margin-top: 0; margin-bottom: 20px; }
+        h3 { font-size: 1rem; font-weight: 600; margin-bottom: 5px; margin-top: 25px; }
+        ul { padding-left: 20px; color: #666; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+        p { color: #666; font-size: 0.9rem; }
+        strong { color: #333; }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px;
+            color: #0a66c2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <span class="header-logo">Professional Experience</span>
+    </div>
+
+    <div class="main-container">
+        <div class="card">
+            <div id="content">Loading profile...</div>
+        </div>
+        
+        <a href="../about.html" class="back-link">Return to Profile</a>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script>
+        fetch('internship.md')
+            .then(r => r.text())
+            .then(t => {
+                let content = t.replace(/^---[\s\S]*?---/, '').trim();
+                document.getElementById('content').innerHTML = marked.parse(content);
+            });
+    </script>
+</body>
+</html>

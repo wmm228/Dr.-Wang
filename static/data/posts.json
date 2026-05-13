@@ -1,0 +1,132 @@
+[
+    {
+        "id": "kdd-2026",
+        "title": "璞玉与光芒：KDD 2026 录用记",
+        "date": "2025-11-24",
+        "category": "winter",
+        "description": "原来在不被理解、不被认可的时候守住自己的方向，是值得的。",
+        "cover": "./static/img/posts/winter/kdd-2026/cover.png",
+        "file": "./posts/winter/kdd-2026.md",
+        "tags": [
+            "Research",
+            "KDD",
+            "Growth"
+        ]
+    },
+    {
+        "id": "2026-exam",
+        "title": "2026 国考：笔与灯",
+        "date": "2025-11-30",
+        "category": "winter",
+        "description": "一支来自我的仓促，一支来自他人的周全。它们轻轻并在一起，像生活对人的一种温柔提醒。",
+        "cover": "./static/img/posts/winter/2026-exam/cover.jpg?v=2",
+        "file": "./posts/winter/2026-exam.md",
+        "tags": [
+            "Life",
+            "Exam",
+            "Winter"
+        ]
+    },
+    {
+        "id": "auto-tag-随笔-3",
+        "title": "随笔测试",
+        "date": "2024-03-22",
+        "category": "tag_post",
+        "subCategory": "随笔",
+        "description": "这是一篇放在tags/随笔文件夹下的测试文章",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./tags/随笔/test.md",
+        "tags": [
+            "随笔"
+        ]
+    },
+    {
+        "id": "auto-spring-2",
+        "title": "春日序曲",
+        "date": "2024-03-21",
+        "category": "spring",
+        "description": "这是春天的第一篇文章，测试博客系统是否正常工作。",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./posts/spring/sample.md",
+        "tags": [
+            "Spring",
+            "Life",
+            "Test"
+        ]
+    },
+    {
+        "id": "research",
+        "title": "科研经历",
+        "date": "2024-03-21",
+        "category": "resume",
+        "subCategory": "research",
+        "description": "我的主要科研方向和发表论文",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./resume/research.md",
+        "tags": [
+            "Research",
+            "Paper",
+            "AI"
+        ]
+    },
+    {
+        "id": "auto-spring-1",
+        "title": "春天的开始",
+        "date": "2024-03-20",
+        "category": "spring",
+        "description": "万物复苏的季节，记录下今年的第一场春雨。",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./posts/spring/1.md",
+        "tags": [
+            "生活",
+            "随笔"
+        ]
+    },
+    {
+        "id": "competition",
+        "title": "科技竞赛",
+        "date": "2024-03-20",
+        "category": "resume",
+        "subCategory": "competition",
+        "description": "参加过的各类科技竞赛及获奖情况",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./resume/competition.md",
+        "tags": [
+            "Competition",
+            "Award",
+            "ACM",
+            "MCM"
+        ]
+    },
+    {
+        "id": "campus",
+        "title": "校园经历",
+        "date": "2024-03-19",
+        "category": "resume",
+        "subCategory": "campus",
+        "description": "在校期间的社团活动和学生工作",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./resume/campus.md",
+        "tags": [
+            "Campus",
+            "Leadership",
+            "Volunteer"
+        ]
+    },
+    {
+        "id": "internship",
+        "title": "实习经历",
+        "date": "2024-03-18",
+        "category": "resume",
+        "subCategory": "internship",
+        "description": "在各大互联网公司的实习记录",
+        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "file": "./resume/internship.md",
+        "tags": [
+            "Internship",
+            "Backend",
+            "Frontend",
+            "Fullstack"
+        ]
+    }
+]

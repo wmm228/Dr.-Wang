@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签 - Wmumu's Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/home.css?v=20260204">
+    <link rel="stylesheet" href="./static/css/tags.css?v=20260204">
+    <script src="./static/js/home.js?v=20260204"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">Wmumu</span>
+                <span class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="./tags.html" class="nav-link active">标签</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./blogs.html" class="nav-link">博客 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./blogs.html?category=spring">春 · Spring</a>
+                        <a href="./blogs.html?category=summer">夏 · Summer</a>
+                        <a href="./blogs.html?category=autumn">秋 · Autumn</a>
+                        <a href="./blogs.html?category=winter">冬 · Winter</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">简历 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./article.html?id=research">科研经历</a>
+                        <a href="./article.html?id=competition">科技竞赛</a>
+                        <a href="./article.html?id=campus">校园经历</a>
+                        <a href="./article.html?id=internship">实习经历</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content (Tags Layout) -->
+    <div class="main-container tags-page-container" id="pjax-container">
+        
+        <!-- Tags Cloud Section -->
+        <div class="card tags-cloud-card">
+            <div class="tags-header">
+                <!-- Tags will be injected by JS -->
+                <span class="tag-pill active">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Blog Cards Section -->
+        <div class="blog-cards-container">
+            <!-- Blog Cards will be injected by JS -->
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wmumu. All rights reserved.</p>
+    </footer>
+
+    <script src="./static/js/global.js?v=20260204"></script>
+    <script src="./static/js/tags.js?v=20260204"></script>
+</body>
+</html>

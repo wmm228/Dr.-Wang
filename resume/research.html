@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科研经历 - Research Experience</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <style>
+        body {
+            background-color: #fdfdfd;
+            color: #222;
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+        .paper-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 60px 80px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .header-deco {
+            text-align: center;
+            border-bottom: 2px solid #222;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .header-subtitle {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        /* Markdown Styles */
+        h1, h2, h3 { color: #111; margin-top: 2em; }
+        h1 { font-size: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; }
+        h2 { font-size: 1.5rem; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 0.5em; }
+        strong { color: #000; font-weight: 700; }
+        blockquote {
+            border-left: 4px solid #1565c0;
+            padding-left: 15px;
+            color: #555;
+            background: #f5f9ff;
+            padding: 10px 20px;
+            margin: 20px 0;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 50px;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { color: #1565c0; }
+        
+        #loading { text-align: center; color: #999; padding: 50px; }
+    </style>
+</head>
+<body>
+    <div class="paper-container">
+        <div class="header-deco">
+            <div class="header-title">RESEARCH</div>
+            <div class="header-subtitle">Academic Journey & Publications</div>
+        </div>
+        
+        <div id="content">
+            <div id="loading">Loading research data...</div>
+        </div>
+
+        <a href="../about.html" class="back-link">❧ Return to Profile</a>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script>
+        fetch('research.md')
+            .then(response => response.text())
+            .then(text => {
+                // Strip front matter
+                let content = text;
+                if (content.startsWith('---')) {
+                    const endIdx = content.indexOf('---', 3);
+                    if (endIdx !== -1) content = content.substring(endIdx + 3).trim();
+                }
+                document.getElementById('content').innerHTML = marked.parse(content);
+            })
+            .catch(err => {
+                document.getElementById('content').innerHTML = '<p style="color:red">Failed to load content.</p>';
+                console.error(err);
+            });
+    </script>
+</body>
+</html>

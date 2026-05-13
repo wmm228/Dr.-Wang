@@ -1,0 +1,239 @@
+/* static/css/blog.css */
+:root {
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --accent-color: #4a90e2;
+    --radius: 16px;
+}
+
+body {
+    font-family: 'Fredoka', 'ZCOOL KuaiLe', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: auto !important; /* Override home.css fixed height */
+    overflow-y: auto !important; /* Override home.css hidden overflow */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Reuse Nav from home.css (copying basic styles or expecting home.css to be loaded) */
+/* We will load home.css in blogs.html as well, so we only need overrides here */
+
+.blog-container {
+    width: 1200px;
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex: 1;
+}
+
+/* Season Filters */
+.season-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.season-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    color: #666;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.season-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    color: var(--accent-color);
+}
+
+.season-btn.active {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+}
+
+/* Specific Season Colors */
+.season-btn[data-season="spring"].active { background: #6ab04c; box-shadow: 0 8px 20px rgba(106, 176, 76, 0.3); }
+.season-btn[data-season="summer"].active { background: #eb4d4b; box-shadow: 0 8px 20px rgba(235, 77, 75, 0.3); }
+.season-btn[data-season="autumn"].active { background: #f0932b; box-shadow: 0 8px 20px rgba(240, 147, 43, 0.3); }
+.season-btn[data-season="winter"].active { background: #686de0; box-shadow: 0 8px 20px rgba(104, 109, 224, 0.3); }
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card-cover {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tags {
+    margin-bottom: 0.8rem;
+}
+
+.card-tag {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    background: rgba(74, 144, 226, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin: 0 0 0.8rem 0;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: #bdc3c7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* Markdown Content Styles (for article.html) */
+.article-container {
+    width: 900px;
+    max-width: 95%;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 3rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    min-height: 80vh;
+}
+
+.article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.article-title {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    color: #95a5a6;
+    font-size: 1rem;
+}
+
+.markdown-body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #34495e;
+}
+
+.markdown-body p {
+    margin-bottom: 1.5rem;
+}
+
+.markdown-body img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.markdown-body pre {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #e9ecef;
+}
+
+.markdown-body code {
+    background: #f1f2f6;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: #e74c3c;
+    font-family: 'Consolas', monospace;
+}
+
+.markdown-body pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid var(--accent-color);
+    margin: 0;
+    padding-left: 1rem;
+    color: #7f8c8d;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}

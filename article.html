@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章阅读 - Wmumu's Blog</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./static/css/home.css?v=20260204">
+    <link rel="stylesheet" href="./static/css/blog.css?v=20260204">
+    <link rel="stylesheet" href="./static/css/article.css?v=20260204">
+    <!-- Highlight.js Theme -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">Wmumu</span>
+                <span class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="./tags.html" class="nav-link">标签</a></li>
+                <li class="nav-item">
+                    <a href="./blogs.html" class="nav-link active">博客 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./blogs.html?category=spring">春 · Spring</a>
+                        <a href="./blogs.html?category=summer">夏 · Summer</a>
+                        <a href="./blogs.html?category=autumn">秋 · Autumn</a>
+                        <a href="./blogs.html?category=winter">冬 · Winter</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">简历 ▾</a>
+                    <div class="dropdown-content">
+                        <a href="./article.html?id=research">科研经历</a>
+                        <a href="./article.html?id=competition">科技竞赛</a>
+                        <a href="./article.html?id=campus">校园经历</a>
+                        <a href="./article.html?id=internship">实习经历</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-wrapper" id="pjax-container">
+        <!-- Left Sidebar -->
+        <aside class="article-sidebar">
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <img src="./static/img/logo.png?v=20260204" onerror="this.src='./static/img/logo.png?v=20260204'" alt="Avatar" class="profile-avatar">
+                <h3 class="profile-name">Wmumu</h3>
+                <p class="profile-bio">Just for fun</p>
+                
+                <div class="profile-stats">
+                    <div class="p-stat-item">
+                        <span class="p-stat-val">24</span>
+                        <span class="p-stat-label">文章</span>
+                    </div>
+                    <div class="p-stat-item">
+                        <span class="p-stat-val">25</span>
+                        <span class="p-stat-label">标签</span>
+                    </div>
+                    <div class="p-stat-item">
+                        <span class="p-stat-val">4k+</span>
+                        <span class="p-stat-label">访问</span>
+                    </div>
+                </div>
+
+                <div class="profile-social">
+                    <a href="mailto:your-email@example.com" class="social-icon" title="Email">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <a href="https://github.com/wmm228" target="_blank" class="social-icon" title="GitHub">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://blog.csdn.net/weixin_43961909?spm=1000.2115.3001.5343" target="_blank" class="social-icon" title="CSDN">
+                        <svg viewBox="0 0 1024 1024" width="20" height="20" fill="currentColor"><path d="M512 0C229.23 0 0 229.23 0 512s229.23 512 512 512 512-229.23 512-512S794.77 0 512 0zm0 938.67C276.36 938.67 85.33 747.64 85.33 512S276.36 85.33 512 85.33 938.67 276.36 938.67 512 747.64 938.67 512 938.67z"/><path d="M682.67 341.33H341.33c-23.56 0-42.67 19.11-42.67 42.67v256c0 23.56 19.11 42.67 42.67 42.67h341.33c23.56 0 42.67-19.11 42.67-42.67V384c0-23.56-19.11-42.67-42.67-42.67zm-42.67 256H384V426.67h256v170.66z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TOC Card -->
+            <div class="toc-card">
+                <div class="toc-title">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                    文章目录
+                </div>
+                <ul class="toc-list" id="toc-list">
+                    <!-- TOC items injected by JS -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <main class="article-main">
+            <!-- Header Image & Info -->
+            <div class="article-header-image" id="header-bg" style="background-image: url('./static/img/new_home/bg-placeholder.jpg?v=20260204');">
+                <div class="header-overlay"></div>
+                <div class="header-content">
+                    <h1 class="header-title" id="article-title">Loading...</h1>
+                    <div class="header-meta">
+                        <span id="article-date">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            ...
+                        </span>
+                        <span id="article-category">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            ...
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Markdown Content -->
+            <div class="article-body-wrapper">
+                <div class="markdown-body" id="markdown-content">
+                    <div style="text-align: center; padding: 2rem; color: #999;">
+                        正在加载文章内容...
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wmumu. All rights reserved.</p>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- MathJax -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    <script src="./static/js/blog.js?v=20260204"></script>
+    <script src="./static/js/global.js?v=20260204"></script>
+</body>
+</html>

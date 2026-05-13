@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技竞赛 - Competitions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .main-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3rem;
+            color: #e94560;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #16213e;
+            margin-bottom: 40px;
+            border-left: 10px solid #e94560;
+            padding-left: 20px;
+        }
+        
+        /* Markdown overrides */
+        #content h1 { display: none; } /* Hide duplicate title */
+        #content h2 {
+            font-family: 'Russo One', sans-serif;
+            color: #0f3460;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 40px;
+            transform: skew(-10deg);
+        }
+        #content h3 {
+            color: #e94560;
+            border-bottom: 2px dashed #e94560;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        #content ul {
+            list-style: none;
+            padding: 0;
+        }
+        #content li {
+            background: rgba(22, 33, 62, 0.8);
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-left: 4px solid #0f3460;
+            transition: transform 0.2s;
+        }
+        #content li:hover {
+            transform: translateX(10px);
+            border-left-color: #e94560;
+            background: #16213e;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #e94560;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            font-family: 'Russo One', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <a href="../about.html" class="back-btn">EXIT</a>
+    
+    <div class="container">
+        <div class="main-title">Hall of Fame</div>
+        <div id="content">Loading...</div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script>
+        fetch('competition.md')
+            .then(r => r.text())
+            .then(t => {
+                let content = t.replace(/^---[\s\S]*?---/, '').trim();
+                document.getElementById('content').innerHTML = marked.parse(content);
+            });
+    </script>
+</body>
+</html>

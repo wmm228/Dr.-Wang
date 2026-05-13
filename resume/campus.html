@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园经历 - Campus Life</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f1ea;
+            background-image: radial-gradient(#d0ccd0 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Patrick Hand', cursive;
+            color: #333;
+            font-size: 1.2rem;
+            margin: 0;
+            padding: 40px;
+        }
+        .scrapbook-page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(1deg);
+            position: relative;
+        }
+        .scrapbook-page::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 40px;
+            background: rgba(255, 235, 59, 0.5);
+            transform: translateX(-50%) rotate(-2deg);
+            z-index: 1;
+        }
+        
+        /* Markdown Styles */
+        h1 {
+            font-family: 'Indie Flower', cursive;
+            font-size: 3rem;
+            color: #ff5722;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h2 {
+            background: #e0f7fa;
+            display: inline-block;
+            padding: 5px 15px;
+            transform: rotate(-1deg);
+            border: 2px solid #333;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        }
+        ul { list-style: none; padding-left: 10px; }
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        li::before {
+            content: '📌';
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        .back-tag {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #8bc34a;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="scrapbook-page">
+        <div id="content">Loading memories...</div>
+    </div>
+    <a href="../about.html" class="back-tag">Go Back</a>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script>
+        fetch('campus.md')
+            .then(r => r.text())
+            .then(t => {
+                let content = t.replace(/^---[\s\S]*?---/, '').trim();
+                document.getElementById('content').innerHTML = marked.parse(content);
+            });
+    </script>
+</body>
+</html>

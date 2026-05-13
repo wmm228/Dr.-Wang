@@ -1,0 +1,215 @@
+/* Article Layout Specifics */
+body {
+    height: auto !important;
+    overflow-y: auto !important;
+}
+
+.article-wrapper {
+    width: 1400px;
+    max-width: 95%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Left sidebar fixed width, right content takes rest */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Left Sidebar */
+.article-sidebar {
+    position: sticky;
+    top: 80px; /* Sticky when scrolling */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* User Profile Card (Left Top) */
+.profile-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid rgba(74, 144, 226, 0.1);
+}
+
+.profile-name {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.profile-bio {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.p-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-stat-val {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.p-stat-label {
+    font-size: 0.8rem;
+    color: #95a5a6;
+}
+
+.profile-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    color: #bdc3c7;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* TOC Card (Left Bottom) */
+.toc-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.toc-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.toc-list li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-link {
+    text-decoration: none;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    display: block;
+    padding: 0.2rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.8rem;
+}
+
+.toc-link:hover, .toc-link.active {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+}
+
+.toc-link.h3 { padding-left: 1.5rem; font-size: 0.85rem; }
+
+/* Right Content Area */
+.article-main {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    min-height: 800px;
+}
+
+/* Header Image Area */
+.article-header-image {
+    height: 240px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.header-title {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.header-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Markdown Body Wrapper */
+.article-body-wrapper {
+    padding: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .article-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .article-sidebar {
+        position: static;
+        order: 2; /* Move to bottom on mobile */
+    }
+}
