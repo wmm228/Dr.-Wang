@@ -25,6 +25,11 @@
         preloadImage.src = targetCover;
     }
 
+    function matchesTagsPage() {
+        const path = window.location.pathname.replace(/\/+$/, '');
+        return path.endsWith('/tags') || path.endsWith('/tags.html');
+    }
+
     window.initTagsPage = async function() {
         if (tagsPageInitialized) return;
         tagsPageInitialized = true;
@@ -138,7 +143,7 @@
     }
 
     function autoInitTagsPage() {
-        if (window.location.pathname.includes('tags.html')) {
+        if (matchesTagsPage()) {
             window.initTagsPage();
         }
     }

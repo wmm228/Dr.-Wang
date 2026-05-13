@@ -28,6 +28,11 @@
         preloadImage.src = targetCover;
     }
 
+    function matchesPage(pageName) {
+        const path = window.location.pathname.replace(/\/+$/, '');
+        return path.endsWith(`/${pageName}`) || path.endsWith(`/${pageName}.html`);
+    }
+
     /**
      * Initialize Blog List Page
      */
@@ -392,11 +397,9 @@
     }
 
     function autoInitCurrentPage() {
-        const path = window.location.pathname;
-
-        if (path.includes('blogs.html')) {
+        if (matchesPage('blogs')) {
             window.initBlogList();
-        } else if (path.includes('article.html') && typeof window.initArticleReader === 'function') {
+        } else if (matchesPage('article') && typeof window.initArticleReader === 'function') {
             window.initArticleReader();
         }
     }
