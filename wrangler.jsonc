@@ -2,6 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "wmumu-home",
   "compatibility_date": "2026-05-13",
+  "routes": [
+    {
+      "pattern": "drwang.wmumu.uno",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "directory": "./dist"
   },
