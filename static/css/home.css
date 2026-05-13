@@ -132,7 +132,7 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     background: var(--card-bg);
-    min-width: 140px;
+    min-width: 190px;
     box-shadow: var(--shadow);
     border-radius: 12px;
     padding: 0.5rem 0;
@@ -153,6 +153,7 @@ nav {
     transition: background 0.2s;
     font-size: 1rem;
     font-family: 'Fredoka', sans-serif;
+    white-space: nowrap;
 }
 
 .dropdown-content a:hover {
