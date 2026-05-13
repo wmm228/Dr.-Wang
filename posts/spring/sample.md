@@ -3,7 +3,7 @@ title: 春日序曲
 date: 2024-03-21
 description: 这是春天的第一篇文章，测试博客系统是否正常工作。
 tags: [Spring, Life, Test]
-cover: ./static/img/new_home/bg-placeholder.jpg
+cover: ./static/img/new_home/my_bg.jpg
 ---
 
 # 春日序曲
@@ -39,7 +39,7 @@ greet('Spring');
 
 #### 图片测试
 
-![占位图](./static/img/new_home/bg-placeholder.jpg)
+![配图](./static/img/new_home/my_bg.jpg)
 
 ## 长文测试：第一章
 

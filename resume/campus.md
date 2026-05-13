@@ -5,7 +5,7 @@ category: resume
 subCategory: campus
 description: 研究生期间的学习、工作与社会实践
 tags: [Campus, Scholarship, Volunteer, CSDN]
-cover: ./static/img/new_home/bg-placeholder.jpg
+cover: ./static/img/new_home/my_bg.jpg
 ---
 
 # 🎓 校园经历 (Campus Experience)

@@ -5,7 +5,7 @@ category: resume
 subCategory: internship
 description: 企业实习与项目实战经历
 tags: [Internship, LLM, Algorithm, Testing]
-cover: ./static/img/new_home/bg-placeholder.jpg
+cover: ./static/img/new_home/my_bg.jpg
 ---
 
 # 💼 实习经历 (Internship Experience)

@@ -1,7 +1,30 @@
 // Use IIFE to avoid global scope pollution and re-declaration errors
 (function() {
+    const FALLBACK_COVER = './static/img/new_home/my_bg.jpg';
+
     // Global posts data cache (scoped to this closure)
     let allPosts = [];
+
+    function getCoverUrl(cover) {
+        return cover || FALLBACK_COVER;
+    }
+
+    function applyCoverBackground(element, cover) {
+        if (!element) return;
+
+        const targetCover = getCoverUrl(cover);
+        const preloadImage = new Image();
+
+        preloadImage.onload = () => {
+            element.style.backgroundImage = `url('${targetCover}')`;
+        };
+
+        preloadImage.onerror = () => {
+            element.style.backgroundImage = `url('${FALLBACK_COVER}')`;
+        };
+
+        preloadImage.src = targetCover;
+    }
 
     /**
      * Initialize Blog List Page
@@ -81,12 +104,13 @@
             const card = document.createElement('a');
             card.href = `./article.html?id=${post.id}`;
             card.className = 'blog-card';
+            const coverImg = getCoverUrl(post.cover);
             
             // Format Tags
             const tagsHtml = post.tags ? post.tags.map(tag => `<span class="card-tag">#${tag}</span>`).join('') : '';
 
             card.innerHTML = `
-                <img src="${post.cover}" alt="${post.title}" class="card-cover">
+                <img src="${coverImg}" alt="${post.title}" class="card-cover">
                 <div class="card-content">
                     <div class="card-tags">${tagsHtml}</div>
                     <h3 class="card-title">${post.title}</h3>
@@ -97,6 +121,15 @@
                     </div>
                 </div>
             `;
+
+            const coverEl = card.querySelector('.card-cover');
+            if (coverEl) {
+                coverEl.onerror = () => {
+                    coverEl.onerror = null;
+                    coverEl.src = FALLBACK_COVER;
+                };
+            }
+
             grid.appendChild(card);
         });
     }
@@ -147,8 +180,8 @@
 
         // 3.1 Update Header Background Image
         const headerBg = document.getElementById('header-bg');
-        if (headerBg && post.cover) {
-            headerBg.style.backgroundImage = `url('${post.cover}')`;
+        if (headerBg) {
+            applyCoverBackground(headerBg, post.cover);
         }
 
         // 4. Fetch Markdown Content

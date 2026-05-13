@@ -5,7 +5,7 @@ category: research
 subCategory: research
 description: 专注于 AI for Education、认知深度评估与多跳问答研究
 tags: [AI for EDU, LLM, Cognitive Depth, Multi-hop QA]
-cover: ./static/img/new_home/bg-placeholder.jpg
+cover: ./static/img/new_home/my_bg.jpg
 ---
 
 # 🔬 科研经历 (Research Experience)

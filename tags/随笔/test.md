@@ -2,7 +2,7 @@
 title: 随笔测试
 date: 2024-03-22
 description: 这是一篇放在tags/随笔文件夹下的测试文章
-cover: ./static/img/new_home/bg-placeholder.jpg
+cover: ./static/img/new_home/my_bg.jpg
 ---
 
 # 随笔测试

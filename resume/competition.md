@@ -5,7 +5,7 @@ category: competition
 subCategory: competition
 description: 参加过的各类科技竞赛及获奖情况
 tags: [Competition, Award, ACM, AI]
-cover: ./static/img/new_home/bg-placeholder.jpg
+cover: ./static/img/new_home/my_bg.jpg
 ---
 
 # 🏆 科技竞赛 (Competitions & Awards)

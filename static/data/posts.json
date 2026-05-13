@@ -34,7 +34,7 @@
         "category": "tag_post",
         "subCategory": "随笔",
         "description": "这是一篇放在tags/随笔文件夹下的测试文章",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./tags/随笔/test.md",
         "tags": [
             "随笔"
@@ -46,7 +46,7 @@
         "date": "2024-03-21",
         "category": "spring",
         "description": "这是春天的第一篇文章，测试博客系统是否正常工作。",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./posts/spring/sample.md",
         "tags": [
             "Spring",
@@ -61,7 +61,7 @@
         "category": "resume",
         "subCategory": "research",
         "description": "我的主要科研方向和发表论文",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./resume/research.md",
         "tags": [
             "Research",
@@ -75,7 +75,7 @@
         "date": "2024-03-20",
         "category": "spring",
         "description": "万物复苏的季节，记录下今年的第一场春雨。",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./posts/spring/1.md",
         "tags": [
             "生活",
@@ -89,7 +89,7 @@
         "category": "resume",
         "subCategory": "competition",
         "description": "参加过的各类科技竞赛及获奖情况",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./resume/competition.md",
         "tags": [
             "Competition",
@@ -105,7 +105,7 @@
         "category": "resume",
         "subCategory": "campus",
         "description": "在校期间的社团活动和学生工作",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./resume/campus.md",
         "tags": [
             "Campus",
@@ -120,7 +120,7 @@
         "category": "resume",
         "subCategory": "internship",
         "description": "在各大互联网公司的实习记录",
-        "cover": "./static/img/new_home/bg-placeholder.jpg",
+        "cover": "./static/img/new_home/my_bg.jpg",
         "file": "./resume/internship.md",
         "tags": [
             "Internship",

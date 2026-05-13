@@ -75,7 +75,7 @@ function generateIndex() {
                     date: metadata.date || 'Unknown Date',
                     category: season, // Enforce folder name as category
                     description: metadata.description || 'No description provided.',
-                    cover: metadata.cover || './static/img/new_home/bg-placeholder.jpg',
+                    cover: metadata.cover || './static/img/new_home/my_bg.jpg',
                     file: webPath,
                     tags: metadata.tags || []
                 });
@@ -109,7 +109,7 @@ function generateIndex() {
                     category: 'resume', // Special category for resume items
                     subCategory: metadata.category || 'general', // Sub-category from frontmatter
                     description: metadata.description || 'Resume item',
-                    cover: metadata.cover || './static/img/new_home/bg-placeholder.jpg',
+                    cover: metadata.cover || './static/img/new_home/my_bg.jpg',
                     file: webPath,
                     tags: metadata.tags || ['Resume']
                 });
@@ -150,7 +150,7 @@ function generateIndex() {
                         category: 'tag_post', // Category for tag-based posts
                         subCategory: tagDir,
                         description: metadata.description || 'No description provided.',
-                        cover: metadata.cover || './static/img/new_home/bg-placeholder.jpg',
+                        cover: metadata.cover || './static/img/new_home/my_bg.jpg',
                         file: webPath,
                         tags: tags
                     });

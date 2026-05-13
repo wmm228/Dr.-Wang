@@ -46,7 +46,7 @@ $$
 
 你可以直接插入本地图片或网络图片：
 
-![示例图片](../static/img/new_home/bg-placeholder.jpg)
+![示例图片](../static/img/new_home/my_bg.jpg)
 
 ## 5. 列表展示
 

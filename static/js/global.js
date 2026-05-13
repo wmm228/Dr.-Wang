@@ -20,12 +20,14 @@
     };
 })();
 
-window.pjaxActive = true; // Signal to other scripts
+window.pjaxActive = false; // Disable unstable partial-page navigation
 
 const GlobalApp = {
     init: function() {
         this.initAudio();
-        this.initPjax(); // Enable PJAX
+        if (window.pjaxActive) {
+            this.initPjax();
+        }
         this.handleInitialLoad();
     },
 
@@ -219,7 +221,7 @@ const GlobalApp = {
     },
 
     navigate: function(url) {
-        this.loadPage(url, true);
+        window.location.href = url;
     },
 
     loadPage: async function(url, pushState = false) {
@@ -476,12 +478,8 @@ const GlobalApp = {
         } else if (url.includes('article.html')) {
             this.ensureScriptLoaded('./static/js/blog.js', 'initArticleReader'); 
         } else if (url.includes('about.html')) {
-            // About page uses script.js but logic is inside DOMContentLoaded which fires once.
-            // We might need to manually trigger logic if it's exposed, 
-            // or re-add script.js to run it again (simple way)
-            // But script.js has no exposed init function. It just runs.
-            // Let's force reload script.js
-            this.reloadScript('./static/js/script.js');
+            // about.html already loads its own script on full page load.
+            return;
         }
     },
 
