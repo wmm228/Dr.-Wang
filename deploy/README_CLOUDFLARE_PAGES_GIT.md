@@ -33,14 +33,14 @@ Cloudflare 官方文档：
 
 - Framework preset: `None`
 - Production branch: `main`
-- Build command: `exit 0`
-- Build output directory: `.`
+- Build command: `node scripts/build-pages.mjs`
+- Build output directory: `dist`
 
 说明：
 
-- 这里整个仓库根目录本身就是网站根目录
-- 首页文件就是 `index.html`
-- `static/`、`blog/`、`resume/` 等目录都直接从仓库根目录提供
+- Cloudflare 不再直接拿整个仓库当站点目录
+- 构建脚本会自动生成一个干净的 `dist/`
+- 只有真正需要上线的网站文件会被部署
 
 ## GitHub 连接步骤
 

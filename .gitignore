@@ -1,5 +1,7 @@
 .npm-cache/
 __pycache__/
+.wrangler/
+dist/
 
 server.out.log
 server.err.log
